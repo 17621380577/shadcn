@@ -1,0 +1,21 @@
+{
+  "app": "Tiny Invoice",
+  "FAQ": "FAQ",
+  "english": "English",
+  "portuguese": "Portugués",
+  "spanish": "Español",
+  "indonesian": "Bahasa Indonesia",
+  "All collection": "All Collection",
+  "Related Articles": "Related Articles",
+  "Did this answer your question?": "Did this answer your question?",
+  "Advice and answers from the Tiny Invoice Team": "Advice and answers from the Tiny Invoice Team",
+  "Popular Articles": "Popular Articles",
+  "Help Center": "Help Center",
+  "articles": "{number} articles",
+  "articles found": "{number} articles found",
+  "Search for articles…": "Search for articles…",
+  "Go to Tiny Invoice": "Go to Tiny Invoice",
+  "Please enter at least 3 characters to start the search": "Please enter at least 3 characters to start the search.",
+  "Thanks for your feedback!": "Thanks for your feedback!",
+  "Search results for": "Search results for {result}"
+}
