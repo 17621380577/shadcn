@@ -1,100 +1,32 @@
 {
-  "name": "tiny-invoice-website",
-  "version": "1.0.9",
+  "name": "shadcn-project",
   "private": true,
-  "author": {
-    "name": "龙保江",
-    "email": "838830372@qq.com"
-  },
   "scripts": {
-    "build": "next build && rm -rf .next/cache",
-    "build:test": "cross-env NODE_ENV=test next build && rm -rf .next/cache",
-    "ci:eslint": "eslint -f json src -o ./.ci/eslint.json",
-    "dev": "next dev  -H 0.0.0.0 -p 4800",
-    "lint": "eslint . && stylelint \"**/*.{css,less,scss}\"",
-    "lint:fix": "prettier --write . && eslint --fix . && stylelint --fix \"**/*.{css,less,scss}\"",
-    "start": "next start -p 3000"
-  },
-  "commitlint": {
-    "extends": [
-      "ali"
-    ]
-  },
-  "lint-staged": {
-    "*.{cjs,cts,js,jsx,mjs,mts,ts,tsx,vue}": "eslint --fix",
-    "*.{css,less,scss}": "stylelint --fix",
-    "*.{cjs,css,cts,html,js,json,jsx,less,md,mjs,mts,scss,ts,tsx,vue,yaml,yml}": "prettier --write"
-  },
-  "prettier": "prettier-config-ali",
-  "stylelint": {
-    "extends": [
-      "stylelint-config-ali",
-      "stylelint-prettier/recommended"
-    ]
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@fingerprintjs/fingerprintjs": "^4.6.0",
-    "@microsoft/clarity": "^1.0.0",
-    "@radix-ui/react-alert-dialog": "^1.1.15",
+    "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-dropdown-menu": "^2.1.16",
-    "@radix-ui/react-separator": "^1.1.8",
     "@radix-ui/react-slot": "^1.2.4",
-    "@radix-ui/react-tabs": "^1.1.13",
-    "@stripe/react-stripe-js": "^3.6.0",
-    "@stripe/stripe-js": "^7.2.0",
-    "antd": "^5.24.3",
-    "axios": "^1.8.1",
-    "bignumber.js": "^9.1.2",
-    "class-variance-authority": "^0.7.1",
+    "@tailwindcss/postcss": "^4.2.2",
     "clsx": "^2.1.1",
-    "crypto-js": "^4.2.0",
-    "dayjs": "^1.11.13",
-    "exif-js": "^2.3.0",
-    "jspdf": "^3.0.0",
-    "lodash-es": "^4.17.21",
-    "lucide-react": "^0.562.0",
-    "next": "15.2.0",
-    "next-intl": "^3.26.5",
-    "pdfjs-dist": "^4.10.38",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sass": "^1.85.1",
-    "stripe": "^18.0.0",
-    "tailwind-merge": "^3.4.0",
-    "tailwindcss-animate": "^1.0.7",
-    "webfontloader": "^1.6.28"
+    "lucide-react": "^1.7.0",
+    "next": "14.2.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@eslint/eslintrc": "^3",
-    "@tailwindcss/postcss": "^4.0.9",
-    "@types/crypto-js": "^4.2.2",
-    "@types/lodash-es": "^4.17.12",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@types/webfontloader": "^1.6.38",
-    "commitlint-config-ali": "^1.1.0",
-    "cross-env": "^7.0.3",
-    "eslint": "^9.21.0",
-    "eslint-config-ali": "^16.0.3",
-    "eslint-config-next": "15.2.0",
-    "eslint-config-prettier": "^10.0.2",
-    "eslint-plugin-prettier": "^5.2.3",
-    "lint-staged": "^15.4.3",
-    "prettier": "^3.5.2",
-    "prettier-config-ali": "^1.3.2",
-    "stylelint": "^16.14.1",
-    "stylelint-config-ali": "^2.1.2",
-    "stylelint-prettier": "^5.0.3",
-    "tailwindcss": "^4.0.9",
-    "typescript": "^5"
-  },
-  "browserslist": [
-    "chrome 64",
-    "edge 79",
-    "firefox 67",
-    "opera 51",
-    "safari 12"
-  ]
+    "@types/node": "20.11.30",
+    "@types/react": "18.2.73",
+    "@types/react-dom": "18.2.23",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.1",
+    "postcss": "^8.5.8",
+    "tailwindcss": "^4.2.2",
+    "typescript": "5.4.3"
+  }
 }
