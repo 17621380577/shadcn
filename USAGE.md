@@ -186,6 +186,111 @@ import {
 </Modal>
 ```
 
+### 5. 输入框组件 (Input)
+
+#### 导入
+
+```tsx
+import { Input } from "@/components/ui/input";
+```
+
+#### 使用示例
+
+```tsx
+// 普通输入框
+<Input placeholder="请输入内容" />
+
+// 带图标的输入框
+<div className="relative">
+  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+  <Input placeholder="搜索..." className="pl-10" />
+</div>
+
+// 禁用的输入框
+<Input placeholder="禁用状态" disabled />
+
+// 密码输入框
+<Input type="password" placeholder="请输入密码" />
+```
+
+### 6. 图标使用 (Lucide React)
+
+#### 安装依赖
+
+```bash
+npm install lucide-react
+```
+
+#### 导入
+
+```tsx
+import {
+  Home,
+  Search,
+  User,
+  Settings,
+  Bell,
+  Mail,
+  Calendar,
+  Clock,
+  FileText,
+  FilePlus,
+  Trash2,
+  Edit,
+  Copy,
+  Share2,
+  Download,
+  Upload,
+  ChevronRight,
+  ChevronLeft,
+  ChevronUp,
+  ChevronDown,
+  Menu,
+  X,
+  Check,
+  AlertCircle,
+  // 更多图标...
+} from "lucide-react";
+```
+
+#### 使用示例
+
+```tsx
+// 基本使用
+<Home className="h-6 w-6" />
+
+// 带颜色
+<Search className="h-6 w-6 text-blue-500" />
+
+// 带大小
+<User className="h-8 w-8" />
+
+// 带动画
+<Loader className="h-6 w-6 animate-spin" />
+```
+
+#### 常用图标列表
+
+- **导航图标**: Home, Search, User, Settings, Bell, Mail
+- **文件操作**: FileText, FilePlus, Trash2, Edit, Copy, Share2, Download, Upload
+- **导航箭头**: ChevronRight, ChevronLeft, ChevronUp, ChevronDown, ArrowRight, ArrowLeft, ArrowUp, ArrowDown
+- **交互图标**: Menu, X, Check, AlertCircle, Info, Star, Heart, ThumbsUp, ThumbsDown
+- **数据可视化**: BarChart2, PieChart, Activity
+- **开发工具**: Code, Terminal
+- **天气图标**: Sun, Moon, Cloud, CloudRain, Wind, Zap
+- **媒体图标**: Camera, Video, Music, Headphones
+- **教育图标**: Book, BookOpen, GraduationCap
+- **商业图标**: Briefcase, ShoppingCart, CreditCard, DollarSign
+- **状态图标**: CheckCircle, XCircle, AlertTriangle, HelpCircle
+- **加载图标**: Loader, RefreshCw, RotateCw
+- **操作图标**: Plus, Minus, Save, Print
+- **布局图标**: Maximize, Minimize, Move, ResizeCw
+- **缩放图标**: ZoomIn, ZoomOut
+- **地图图标**: Globe, MapPin
+- **安全图标**: Lock, Unlock, Eye, EyeOff
+- **自然图标**: Leaf, TreePine, Mountain, Compass
+- **情感图标**: Sparkles, Sparkle, Award, Trophy, Medal
+
 ## 自定义主题
 
 可以通过修改 `tailwind.config.js` 文件来自定义主题颜色和样式。

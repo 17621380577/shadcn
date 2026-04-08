@@ -1,166 +1,243 @@
 import { Button } from '@/components/ui/button';
 import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from '@/components/ui/drawer';
+  Home as HomeIcon,
+  Square,
+  LayoutGrid,
+  Type,
+  AlertCircle,
+  PanelLeft,
+  ChevronLeft,
+  Table,
+  Bell,
+  BarChart2,
+  CheckSquare,
+  Radio,
+  MessageCircle,
+  Tag,
+  Calendar,
+  FileText,
 
-import {
-  Modal,
-  ModalContent,
-  ModalDescription,
-  ModalFooter,
-  ModalHeader,
-  ModalTitle,
-  ModalTrigger,
-} from '@/components/ui/modal';
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+  FileSearch,
+} from 'lucide-react';
 
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold">Welcome to Shadcn Project</h1>
-      <div className="flex flex-wrap gap-4 mt-4">
-        <h3 className="w-full text-lg font-semibold">按钮变体</h3>
-        <div className="flex flex-col items-center gap-2">
-          <Button variant="default">默认按钮</Button>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button variant="destructive">危险按钮</Button>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button variant="outline">轮廓按钮</Button>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button variant="secondary">次要按钮</Button>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button variant="ghost">幽灵按钮</Button>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button variant="link">链接按钮</Button>
-        </div>
-        <Button>
-          <svg
-            className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-          >
-            <circle
-              className="opacity-25"
-              cx="12"
-              cy="12"
-              r="10"
-              stroke="currentColor"
-              strokeWidth="4"
-            ></circle>
-            <path
-              className="opacity-75"
-              fill="currentColor"
-              d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-            ></path>
-          </svg>
-          加载中...
-        </Button>
-        <Button disabled>禁用按钮</Button>
+      <div className="flex items-center gap-2 mb-8">
+        <HomeIcon className="h-8 w-8" />
+        <h1 className="text-3xl font-bold">组件库导航</h1>
       </div>
-
-      <div className="flex flex-wrap gap-4 mt-6">
-        <h3 className="w-full text-lg font-semibold">按钮尺寸</h3>
-        <div className="flex flex-col items-center gap-2">
-          <Button size="sm">小按钮</Button>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button size="md">中按钮</Button>
-        </div>
-        <div className="flex flex-col items-center gap-2">
-          <Button size="lg">大按钮</Button>
-        </div>
-      </div>
-
-      <div className="mt-8">
-        <h3 className="text-lg font-semibold">抽屉组件</h3>
-        <Drawer>
-          <DrawerTrigger asChild>
-            <Button>打开抽屉</Button>
-          </DrawerTrigger>
-          <DrawerContent>
-            <DrawerHeader>
-              <DrawerTitle>抽屉标题</DrawerTitle>
-              <DrawerDescription>这是一个抽屉组件，用于显示额外的内容。</DrawerDescription>
-            </DrawerHeader>
-            <div className="py-4">
-              <p>抽屉内容：可以在这里放置表单、列表或其他复杂内容。</p>
-              <div className="mt-4">
-                <Button variant="outline" className="mr-2">
-                  取消
-                </Button>
-                <Button>确认</Button>
-              </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* 按钮组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-blue-100 rounded-full">
+              <Square className="h-6 w-6 text-blue-600" />
             </div>
-          </DrawerContent>
-        </Drawer>
-      </div>
-
-      <div className="mt-8">
-        <h3 className="text-lg font-semibold">弹窗组件</h3>
-        <Modal>
-          <ModalTrigger asChild>
-            <Button>打开弹窗</Button>
-          </ModalTrigger>
-          <ModalContent>
-            <ModalHeader>
-              <ModalTitle>弹窗标题</ModalTitle>
-              <ModalDescription>这是一个弹窗组件，用于显示重要信息。</ModalDescription>
-            </ModalHeader>
-            <div className="py-4">
-              <p>弹窗内容：可以在这里放置表单、警告信息或其他需要用户注意的内容。</p>
-              <div className="mt-4">
-                <p>示例：确认删除操作、填写表单、显示详细信息等。</p>
-              </div>
+            <h2 className="text-xl font-semibold">按钮组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型和状态的按钮组件，包括默认、危险、轮廓、次要、幽灵和链接按钮。</p>
+          <Button asChild>
+            <a href="/button">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 图标组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-purple-100 rounded-full">
+              <LayoutGrid className="h-6 w-6 text-purple-600" />
             </div>
-            <ModalFooter>
-              <Button variant="outline">取消</Button>
-              <Button>确认</Button>
-            </ModalFooter>
-          </ModalContent>
-        </Modal>
-      </div>
-
-      <div className="mt-8">
-        <h3 className="text-lg font-semibold">下拉菜单</h3>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button>打开下拉菜单</Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuItem>文件操作</DropdownMenuItem>
-            <DropdownMenuItem>新建文件</DropdownMenuItem>
-            <DropdownMenuItem>打开文件</DropdownMenuItem>
-            <DropdownMenuItem>保存文件</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>编辑操作</DropdownMenuItem>
-            <DropdownMenuItem>复制</DropdownMenuItem>
-            <DropdownMenuItem>剪切</DropdownMenuItem>
-            <DropdownMenuItem>粘贴</DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>系统操作</DropdownMenuItem>
-            <DropdownMenuItem>设置</DropdownMenuItem>
-            <DropdownMenuItem>帮助</DropdownMenuItem>
-            <DropdownMenuItem>关于</DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+            <h2 className="text-xl font-semibold">图标组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">丰富的 Lucide 图标库，包括导航、文件、动作、状态、工具、媒体等各种类别的图标。</p>
+          <Button asChild>
+            <a href="/icons">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 输入框组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-green-100 rounded-full">
+              <Type className="h-6 w-6 text-green-600" />
+            </div>
+            <h2 className="text-xl font-semibold">输入框组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的输入框组件，包括普通输入框、带图标输入框、禁用输入框、密码输入框等。</p>
+          <Button asChild>
+            <a href="/input">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 弹窗组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-yellow-100 rounded-full">
+              <AlertCircle className="h-6 w-6 text-yellow-600" />
+            </div>
+            <h2 className="text-xl font-semibold">弹窗组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的弹窗组件，包括确认弹窗、警告弹窗、信息弹窗等，支持不同的大小和样式。</p>
+          <Button asChild>
+            <a href="/modal">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 抽屉组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-red-100 rounded-full">
+              <PanelLeft className="h-6 w-6 text-red-600" />
+            </div>
+            <h2 className="text-xl font-semibold">抽屉组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的抽屉组件，包括左侧抽屉、右侧抽屉、顶部抽屉和底部抽屉，支持不同的大小和样式。</p>
+          <Button asChild>
+            <a href="/drawer">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 表格组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-purple-100 rounded-full">
+              <Table className="h-6 w-6 text-purple-600" />
+            </div>
+            <h2 className="text-xl font-semibold">表格组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的表格组件，包括基本表格、带分页的表格、带排序的表格等，支持自定义样式和功能。</p>
+          <Button asChild>
+            <a href="/table">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 全局提示组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-blue-100 rounded-full">
+              <Bell className="h-6 w-6 text-blue-600" />
+            </div>
+            <h2 className="text-xl font-semibold">全局提示组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的全局提示组件，包括成功、错误、警告和信息提示，支持自动消失和手动关闭。</p>
+          <Button asChild>
+            <a href="/toast">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 进度条组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-green-100 rounded-full">
+              <BarChart2 className="h-6 w-6 text-green-600" />
+            </div>
+            <h2 className="text-xl font-semibold">进度条组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的进度条组件，包括线性进度条、环形进度条等，支持自定义样式和进度值。</p>
+          <Button asChild>
+            <a href="/progress">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 输入组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-blue-100 rounded-full">
+              <Type className="h-6 w-6 text-blue-600" />
+            </div>
+            <h2 className="text-xl font-semibold">输入组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的输入组件，包括复选框和单选框，支持自定义样式和状态。</p>
+          <Button asChild>
+            <a href="/input">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 气泡组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-indigo-100 rounded-full">
+              <MessageCircle className="h-6 w-6 text-indigo-600" />
+            </div>
+            <h2 className="text-xl font-semibold">气泡组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的气泡组件，包括工具提示、弹出菜单等，支持自定义样式和位置。</p>
+          <Button asChild>
+            <a href="/popover">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 标签组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-orange-100 rounded-full">
+              <Tag className="h-6 w-6 text-orange-600" />
+            </div>
+            <h2 className="text-xl font-semibold">标签组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的标签组件，包括普通标签、可关闭标签等，支持自定义样式和颜色。</p>
+          <Button asChild>
+            <a href="/tag">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 日历组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-teal-100 rounded-full">
+              <Calendar className="h-6 w-6 text-teal-600" />
+            </div>
+            <h2 className="text-xl font-semibold">日历组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的日历组件，包括月历、周历等，支持日期选择和范围选择。</p>
+          <Button asChild>
+            <a href="/calendar">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 表单组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-violet-100 rounded-full">
+              <FileText className="h-6 w-6 text-violet-600" />
+            </div>
+            <h2 className="text-xl font-semibold">表单组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的表单组件，包括输入框、选择器、日期选择器等，支持表单验证和提交。</p>
+          <Button asChild>
+            <a href="/form">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 分页组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-cyan-100 rounded-full">
+              <ChevronLeft className="h-6 w-6 text-cyan-600" />
+            </div>
+            <h2 className="text-xl font-semibold">分页组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的分页组件，支持自定义总页数、当前页码和显示的页码数量。</p>
+          <Button asChild>
+            <a href="/pagination">查看组件</a>
+          </Button>
+        </div>
+        
+        {/* 空状态组件 */}
+        <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="p-2 bg-gray-100 rounded-full">
+              <FileSearch className="h-6 w-6 text-gray-600" />
+            </div>
+            <h2 className="text-xl font-semibold">空状态组件</h2>
+          </div>
+          <p className="text-gray-600 mb-4">各种类型的空状态组件，用于在没有数据或内容时显示的占位界面。</p>
+          <Button asChild>
+            <a href="/empty">查看组件</a>
+          </Button>
+        </div>
       </div>
     </div>
   );
