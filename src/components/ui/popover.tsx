@@ -2,18 +2,54 @@ import * as React from "react";
 import * as PopoverPrimitive from "@radix-ui/react-popover";
 import { cn } from "@/lib/utils";
 
-const Popover = PopoverPrimitive.Root;
+const Popover = React.forwardRef<
+  React.ElementRef<typeof PopoverPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Root> & {
+    trigger?: "click" | "hover";
+  }
+>(({ trigger = "click", children, ...props }, ref) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleMouseEnter = () => {
+    if (trigger === "hover") {
+      setIsOpen(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (trigger === "hover") {
+      setIsOpen(false);
+    }
+  };
+
+  return (
+    <PopoverPrimitive.Root
+      open={trigger === "hover" ? isOpen : undefined}
+      onOpenChange={trigger === "hover" ? setIsOpen : undefined}
+      {...props}
+    >
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child) && child.type === PopoverTrigger) {
+          return React.cloneElement(child, {
+            onMouseEnter: trigger === "hover" ? handleMouseEnter : child.props.onMouseEnter,
+            onMouseLeave: trigger === "hover" ? handleMouseLeave : child.props.onMouseLeave,
+          });
+        }
+        return child;
+      })}
+    </PopoverPrimitive.Root>
+  );
+});
+Popover.displayName = PopoverPrimitive.Root.displayName;
 
 const PopoverTrigger = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger> & {
-    hover?: boolean;
-  }
->(({ className, hover = false, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger>
+>(({ className, ...props }, ref) => (
   <PopoverPrimitive.Trigger
     ref={ref}
     className={cn(
-      hover && "cursor-pointer",
+      "cursor-pointer",
       className
     )}
     {...props}
@@ -31,7 +67,7 @@ const PopoverContent = React.forwardRef<
       align={align}
       sideOffset={sideOffset}
       className={cn(
-        "z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-left-2 data-[side=right]:slide-in-from-right-2 data-[side=top]:slide-in-from-bottom-2",
+        "bg-white w-72 rounded-md border p-4 text-popover-foreground shadow-lg outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-left-2 data-[side=right]:slide-in-from-right-2 data-[side=top]:slide-in-from-bottom-2",
         className
       )}
       {...props}

@@ -291,6 +291,402 @@ import {
 - **自然图标**: Leaf, TreePine, Mountain, Compass
 - **情感图标**: Sparkles, Sparkle, Award, Trophy, Medal
 
+### 7. 日历组件 (Calendar)
+
+#### 导入
+
+```tsx
+import { Calendar } from "@/components/ui/calendar";
+```
+
+#### 使用示例
+
+```tsx
+// 基本日历
+<Calendar />
+
+// 带日期选择
+const [selectedDate, setSelectedDate] = useState(new Date());
+
+<Calendar
+  value={selectedDate}
+  onChange={setSelectedDate}
+/>
+
+// 带日期范围
+const [minDate] = useState(new Date(2024, 0, 1));
+const [maxDate] = useState(new Date(2024, 11, 31));
+
+<Calendar
+  value={selectedDate}
+  onChange={setSelectedDate}
+  minDate={minDate}
+  maxDate={maxDate}
+/>
+```
+
+### 8. 复选框组件 (Checkbox)
+
+#### 导入
+
+```tsx
+import { Checkbox } from "@/components/ui/checkbox";
+```
+
+#### 使用示例
+
+```tsx
+// 基本复选框
+const [checked, setChecked] = useState(false);
+
+<Checkbox checked={checked} onCheckedChange={(value) => setChecked(value === true)} />
+
+// 禁用的复选框
+<Checkbox checked disabled />
+<Checkbox disabled />
+
+// 复选框组
+const [fruits, setFruits] = useState<string[]>([]);
+
+const handleFruitChange = (fruit: string) => {
+  setFruits((prev) =>
+    prev.includes(fruit) ? prev.filter((f) => f !== fruit) : [...prev, fruit]
+  );
+};
+
+<Checkbox
+  checked={fruits.includes('apple')}
+  onCheckedChange={() => handleFruitChange('apple')}
+/>
+```
+
+### 9. 空状态组件 (Empty)
+
+#### 导入
+
+```tsx
+import { Empty } from "@/components/ui/empty";
+```
+
+#### 使用示例
+
+```tsx
+// 基本空状态
+<Empty
+  title="没有找到结果"
+  description="尝试使用不同的关键词或过滤条件"
+/>
+
+// 带图标的空状态
+<Empty
+  icon={<Search className="h-16 w-16 text-muted-foreground" />}
+  title="没有找到结果"
+  description="尝试使用不同的关键词或过滤条件"
+/>
+
+// 带操作按钮的空状态
+<Empty
+  title="购物车是空的"
+  description="添加一些商品到购物车吧"
+  action={
+    <Button>浏览商品</Button>
+  }
+/>
+```
+
+### 10. 表单组件 (Form)
+
+#### 导入
+
+```tsx
+import { Form, FormControl, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Select, SelectOption } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+```
+
+#### 使用示例
+
+```tsx
+// 基本表单
+const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  password: '',
+  gender: '',
+});
+
+const [errors, setErrors] = useState<Record<string, string>>({});
+
+const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const { name, value } = e.target;
+  setFormData((prev) => ({ ...prev, [name]: value }));
+  if (errors[name]) {
+    setErrors((prev) => ({ ...prev, [name]: '' }));
+  }
+};
+
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+  
+  const newErrors: Record<string, string> = {};
+  if (!formData.name) {
+    newErrors.name = '请输入姓名';
+  } else {
+    console.log('表单提交成功:', formData);
+  }
+};
+
+<Form onSubmit={handleSubmit}>
+  <FormItem>
+    <FormLabel htmlFor="name">姓名</FormLabel>
+    <FormControl>
+      <Input
+        id="name"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+      />
+    </FormControl>
+    {errors.name && <FormMessage className="text-red-500">{errors.name}</FormMessage>}
+  </FormItem>
+
+  <Button type="submit">提交</Button>
+</Form>
+```
+
+### 11. 分页组件 (Pagination)
+
+#### 导入
+
+```tsx
+import { Pagination } from "@/components/ui/pagination";
+```
+
+#### 使用示例
+
+```tsx
+// 基本分页
+const [currentPage, setCurrentPage] = useState(1);
+const totalPages = 10;
+
+<Pagination
+  totalPages={totalPages}
+  currentPage={currentPage}
+  onPageChange={setCurrentPage}
+/>
+
+```
+
+### 12. 气泡组件 (Popover)
+
+#### 导入
+
+```tsx
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+```
+
+#### 使用示例
+
+```tsx
+
+// 悬停触发的气泡
+<Popover trigger="hover">
+  <PopoverTrigger asChild>
+    <Button variant="secondary">悬停我</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <div className="space-y-2">
+      <h3 className="font-medium">悬停气泡</h3>
+      <p className="text-sm text-muted-foreground">这是一个悬停触发的气泡组件。</p>
+    </div>
+  </PopoverContent>
+</Popover>
+```
+
+### 13. 进度条组件 (Progress)
+
+#### 导入
+
+```tsx
+import { Progress } from "@/components/ui/progress";
+```
+
+#### 使用示例
+
+```tsx
+// 基本进度条
+<Progress value={50} />
+
+// 带自定义颜色的进度条
+<Progress value={75} className="bg-gray-200" />
+
+// 带动画的进度条
+<Progress value={30} className="animate-pulse" />
+```
+
+### 14. 单选框组件 (Radio)
+
+#### 导入
+
+```tsx
+import { Radio, RadioGroup } from "@/components/ui/radio";
+```
+
+#### 使用示例
+
+```tsx
+// 基本单选框组
+const [selected, setSelected] = useState("option1");
+
+<RadioGroup value={selected} onValueChange={setSelected}>
+  <div className="flex items-center gap-2">
+    <Radio value="option1" />
+    <label>选项 1</label>
+  </div>
+  <div className="flex items-center gap-2">
+    <Radio value="option2" />
+    <label>选项 2</label>
+  </div>
+  <div className="flex items-center gap-2">
+    <Radio value="option3" />
+    <label>选项 3</label>
+  </div>
+</RadioGroup>
+
+### 15. 选择框组件 (Select)
+
+#### 导入
+
+```tsx
+import { Select, SelectOption } from "@/components/ui/select";
+```
+
+#### 使用示例
+
+```tsx
+// 基本选择框
+const [selected, setSelected] = useState("");
+
+<Select value={selected} onChange={(e) => setSelected(e.target.value)}>
+  <SelectOption value="">请选择</SelectOption>
+  <SelectOption value="option1">选项 1</SelectOption>
+  <SelectOption value="option2">选项 2</SelectOption>
+  <SelectOption value="option3">选项 3</SelectOption>
+</Select>
+
+```
+
+### 16. 表格组件 (Table)
+
+#### 导入
+
+```tsx
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+```
+
+#### 使用示例
+
+```tsx
+// 基本表格
+<Table>
+  <TableHeader>
+    <TableRow>
+      <TableHead>ID</TableHead>
+      <TableHead>姓名</TableHead>
+      <TableHead>邮箱</TableHead>
+      <TableHead>操作</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>1</TableCell>
+      <TableCell>张三</TableCell>
+      <TableCell>zhangsan@example.com</TableCell>
+      <TableCell>
+        <Button variant="ghost" size="sm">编辑</Button>
+        <Button variant="ghost" size="sm" className="ml-2">删除</Button>
+      </TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>2</TableCell>
+      <TableCell>李四</TableCell>
+      <TableCell>lisi@example.com</TableCell>
+      <TableCell>
+        <Button variant="ghost" size="sm">编辑</Button>
+        <Button variant="ghost" size="sm" className="ml-2">删除</Button>
+      </TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+### 17. 标签组件 (Tag)
+
+#### 导入
+
+```tsx
+import { Tag } from "@/components/ui/tag";
+```
+
+#### 使用示例
+
+```tsx
+// 基本标签
+<Tag>标签</Tag>
+
+// 不同变体的标签
+<Tag variant="default">默认标签</Tag>
+<Tag variant="outline">轮廓标签</Tag>
+<Tag variant="destructive">危险标签</Tag>
+
+// 可关闭的标签
+<Tag closeable onClose={() => console.log('标签已关闭')}>
+  可关闭标签
+</Tag>
+```
+
+### 18. 全局提示组件 (Toast)
+
+#### 导入
+
+```tsx
+import { useToast } from "@/components/ui/toast-context";
+import { ToastContainer } from "@/components/ui/toast-container";
+```
+
+#### 使用示例
+
+```tsx
+// 在应用的根组件中添加 ToastContainer
+function App() {
+  return (
+    <>
+      {/* 其他组件 */}
+      <ToastContainer />
+    </>
+  );
+}
+
+// 在需要使用 Toast 的组件中
+const { showToast } = useToast();
+
+// 显示成功提示
+showToast({
+  title: '操作成功',
+  description: '您的操作已成功完成',
+  type: 'success',
+});
+
+// 显示错误提示
+showToast({
+  title: '操作失败',
+  description: '请稍后重试',
+  type: 'error',
+});
+
+```
+
 ## 自定义主题
 
 可以通过修改 `tailwind.config.js` 文件来自定义主题颜色和样式。

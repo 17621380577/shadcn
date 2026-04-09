@@ -8,20 +8,11 @@ import {
   ModalTitle,
   ModalTrigger,
 } from '@/components/ui/modal';
-import { ArrowLeft, AlertCircle, Info, CheckCircle, XCircle } from 'lucide-react';
+import { AlertCircle, Info, CheckCircle, XCircle } from 'lucide-react';
 
 export default function ModalsPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center gap-2 mb-8">
-        <Button variant="ghost" asChild>
-          <a href="/">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            返回导航
-          </a>
-        </Button>
-      </div>
-      
+    <div>
       <h1 className="text-3xl font-bold mb-6">弹窗组件</h1>
       
       <div className="mb-8">
@@ -34,13 +25,9 @@ export default function ModalsPage() {
             <ModalContent>
               <ModalHeader>
                 <ModalTitle>弹窗标题</ModalTitle>
-                <ModalDescription>这是一个基本的弹窗组件，用于显示重要信息。</ModalDescription>
               </ModalHeader>
-              <div className="py-4">
+              <div className="py-4 px-4">
                 <p>弹窗内容：可以在这里放置表单、警告信息或其他需要用户注意的内容。</p>
-                <div className="mt-4">
-                  <p>示例：确认删除操作、填写表单、显示详细信息等。</p>
-                </div>
               </div>
               <ModalFooter>
                 <Button variant="outline">取消</Button>
@@ -64,7 +51,6 @@ export default function ModalsPage() {
                   <XCircle className="h-5 w-5 text-red-500" />
                   确认删除
                 </ModalTitle>
-                <ModalDescription>您确定要删除此项目吗？此操作无法撤销。</ModalDescription>
               </ModalHeader>
               <div className="py-4">
                 <p>删除后，此项目将被永久删除，无法恢复。请谨慎操作。</p>
@@ -91,7 +77,6 @@ export default function ModalsPage() {
                   <AlertCircle className="h-5 w-5 text-yellow-500" />
                   警告信息
                 </ModalTitle>
-                <ModalDescription>您的操作可能会导致数据丢失，请确认后继续。</ModalDescription>
               </ModalHeader>
               <div className="py-4">
                 <p>此操作将覆盖现有的数据，请确保您已经备份了重要信息。</p>
@@ -144,7 +129,6 @@ export default function ModalsPage() {
                   <CheckCircle className="h-5 w-5 text-green-500" />
                   操作成功
                 </ModalTitle>
-                <ModalDescription>您的操作已成功完成。</ModalDescription>
               </ModalHeader>
               <div className="py-4">
                 <p>您的请求已处理完毕，所有更改已保存。</p>

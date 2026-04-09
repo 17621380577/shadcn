@@ -99,9 +99,22 @@ const Calendar = React.forwardRef<HTMLDivElement, CalendarProps>(
     return (
       <div ref={ref} className={cn("w-full max-w-md border rounded-lg p-4", className)}>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-semibold">
-            {monthNames[month]} {year}
-          </h2>
+          <div className="flex items-center gap-4">
+            <h2 className="text-lg font-semibold">
+              {monthNames[month]}
+            </h2>
+            <select
+              value={year}
+              onChange={(e) => setCurrentDate(new Date(parseInt(e.target.value), month, 1))}
+              className="border rounded-md px-2 py-1 text-sm"
+            >
+              {Array.from({ length: 20 }, (_, i) => 2010 + i).map((yearOption) => (
+                <option key={yearOption} value={yearOption}>
+                  {yearOption}
+                </option>
+              ))}
+            </select>
+          </div>
           <div className="flex gap-2">
             <button
               onClick={handlePrevMonth}

@@ -1,24 +1,14 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { ArrowLeft, Search, Eye, EyeOff, Calendar, User, Mail, Lock, Phone, CreditCard } from 'lucide-react';
+import { Search, Eye, EyeOff, Calendar, User, Mail, Lock, Phone, CreditCard } from 'lucide-react';
 import { useState } from 'react';
 
 export default function InputsPage() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center gap-2 mb-8">
-        <Button variant="ghost" asChild>
-          <a href="/">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            返回导航
-          </a>
-        </Button>
-      </div>
-      
+    <div>
       <h1 className="text-3xl font-bold mb-6">输入框组件</h1>
       
       <div className="mb-8">

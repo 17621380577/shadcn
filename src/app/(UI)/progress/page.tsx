@@ -42,7 +42,7 @@ export default function ProgressPage() {
             </div>
           </div>
         </div>
-
+        
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-xl font-semibold mb-4">可交互的进度条</h2>
           <p className="text-gray-600 mb-4">当前进度: {progress}%</p>

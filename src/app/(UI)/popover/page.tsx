@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 
 export default function PopoversPage() {
-  const [isHoverOpen, setIsHoverOpen] = useState(false);
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -30,27 +29,35 @@ export default function PopoversPage() {
               </PopoverContent>
             </Popover>
 
-            <div
-              onMouseEnter={() => setIsHoverOpen(true)}
-              onMouseLeave={() => setIsHoverOpen(false)}
-              className="inline-block"
-            >
-              <Button variant="secondary">悬停我</Button>
-              {isHoverOpen && (
-                <div className="absolute z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md mt-2">
-                  <div className="space-y-2">
-                    <h3 className="font-medium">悬停气泡</h3>
-                    <p className="text-sm text-muted-foreground">这是一个悬停触发的气泡组件。</p>
-                  </div>
+            <Popover trigger="hover">
+              <PopoverTrigger asChild>
+                <Button variant="secondary">悬停我</Button>
+              </PopoverTrigger>
+              <PopoverContent>
+                <div className="space-y-2">
+                  <h3 className="font-medium">悬停气泡</h3>
+                  <p className="text-sm text-muted-foreground">这是一个悬停触发的气泡组件。</p>
                 </div>
-              )}
-            </div>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
 
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <h2 className="text-xl font-semibold mb-4">不同位置的气泡</h2>
-          <div className="grid grid-cols-2 gap-4">
+        <div className="bg-white rounded-lg shadow-md p-10 flex items-center">
+          <h2 className="text-xl font-semibold">不同位置的气泡</h2>
+          <div className="flex flex-1 flex-wrap gap-4 justify-center">
+                <Popover>
+              <PopoverTrigger asChild>
+                <Button>左侧</Button>
+              </PopoverTrigger>
+              <PopoverContent side="left">
+                <div className="space-y-2">
+                  <h3 className="font-medium">左侧气泡</h3>
+                  <p className="text-sm text-muted-foreground">这是一个显示在左侧的气泡组件。</p>
+                </div>
+              </PopoverContent>
+            </Popover>
+            
             <Popover>
               <PopoverTrigger asChild>
                 <Button>顶部</Button>
@@ -71,18 +78,6 @@ export default function PopoversPage() {
                 <div className="space-y-2">
                   <h3 className="font-medium">底部气泡</h3>
                   <p className="text-sm text-muted-foreground">这是一个显示在底部的气泡组件。</p>
-                </div>
-              </PopoverContent>
-            </Popover>
-
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button>左侧</Button>
-              </PopoverTrigger>
-              <PopoverContent side="left">
-                <div className="space-y-2">
-                  <h3 className="font-medium">左侧气泡</h3>
-                  <p className="text-sm text-muted-foreground">这是一个显示在左侧的气泡组件。</p>
                 </div>
               </PopoverContent>
             </Popover>

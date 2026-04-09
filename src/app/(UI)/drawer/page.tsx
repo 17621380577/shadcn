@@ -7,20 +7,11 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer';
-import { ArrowLeft, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function DrawersPage() {
   return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex items-center gap-2 mb-8">
-        <Button variant="ghost" asChild>
-          <a href="/">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            返回导航
-          </a>
-        </Button>
-      </div>
-      
+    <div>
       <h1 className="text-3xl font-bold mb-6">抽屉组件</h1>
       
       <div className="mb-8">

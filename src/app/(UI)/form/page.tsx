@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Select, SelectOption } from '@/components/ui/select';
 import { Form, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 export default function FormsPage() {
@@ -10,11 +11,12 @@ export default function FormsPage() {
     name: '',
     email: '',
     password: '',
+    gender: '',
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     // 清除对应字段的错误
@@ -33,13 +35,16 @@ export default function FormsPage() {
     }
     if (!formData.email) {
       newErrors.email = '请输入邮箱';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[^@]+@[^@]+\.[^@]+$/.test(formData.email)) {
       newErrors.email = '请输入有效的邮箱地址';
     }
     if (!formData.password) {
       newErrors.password = '请输入密码';
     } else if (formData.password.length < 6) {
       newErrors.password = '密码长度至少为 6 位';
+    }
+    if (!formData.gender) {
+      newErrors.gender = '请选择性别';
     }
 
     if (Object.keys(newErrors).length > 0) {
@@ -56,7 +61,7 @@ export default function FormsPage() {
       <div className="flex flex-col gap-6">
         <div>
           <h1 className="text-3xl font-bold mb-4">表单组件</h1>
-          <p className="text-gray-600 mb-6">各种类型的表单组件，包括输入框、选择器、日期选择器等，支持表单验证和提交。</p>
+          <p className="text-gray-600 mb-6">各种类型的表单组件，包括输入框、选择器等，支持表单验证和提交。</p>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-6 max-w-md">
@@ -73,7 +78,7 @@ export default function FormsPage() {
                     onChange={handleChange}
                   />
                 </FormControl>
-                {errors.name && <FormMessage>{errors.name}</FormMessage>}
+                {errors.name && <FormMessage className="text-red-500">{errors.name}</FormMessage>}
               </FormItem>
 
               <FormItem>
@@ -87,7 +92,7 @@ export default function FormsPage() {
                     onChange={handleChange}
                   />
                 </FormControl>
-                {errors.email && <FormMessage>{errors.email}</FormMessage>}
+                {errors.email && <FormMessage className="text-red-500">{errors.email}</FormMessage>}
               </FormItem>
 
               <FormItem>
@@ -101,7 +106,25 @@ export default function FormsPage() {
                     onChange={handleChange}
                   />
                 </FormControl>
-                {errors.password && <FormMessage>{errors.password}</FormMessage>}
+                {errors.password && <FormMessage className="text-red-500">{errors.password}</FormMessage>}
+              </FormItem>
+
+              <FormItem>
+                <FormLabel htmlFor="gender">性别</FormLabel>
+                <FormControl>
+                  <Select
+                    id="gender"
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleChange}
+                  >
+                    <SelectOption value="">请选择</SelectOption>
+                    <SelectOption value="male">男</SelectOption>
+                    <SelectOption value="female">女</SelectOption>
+                    <SelectOption value="other">其他</SelectOption>
+                  </Select>
+                </FormControl>
+                {errors.gender && <FormMessage className="text-red-500">{errors.gender}</FormMessage>}
               </FormItem>
 
               <Button type="submit" className="w-full">
