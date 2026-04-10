@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Select, SelectOption } from '@/components/ui/select';
 import { Form, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 
 export default function FormsPage() {
@@ -107,24 +106,6 @@ export default function FormsPage() {
                   />
                 </FormControl>
                 {errors.password && <FormMessage className="text-red-500">{errors.password}</FormMessage>}
-              </FormItem>
-
-              <FormItem>
-                <FormLabel htmlFor="gender">性别</FormLabel>
-                <FormControl>
-                  <Select
-                    id="gender"
-                    name="gender"
-                    value={formData.gender}
-                    onChange={handleChange}
-                  >
-                    <SelectOption value="">请选择</SelectOption>
-                    <SelectOption value="male">男</SelectOption>
-                    <SelectOption value="female">女</SelectOption>
-                    <SelectOption value="other">其他</SelectOption>
-                  </Select>
-                </FormControl>
-                {errors.gender && <FormMessage className="text-red-500">{errors.gender}</FormMessage>}
               </FormItem>
 
               <Button type="submit" className="w-full">

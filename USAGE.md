@@ -13,7 +13,6 @@ shadcn-project/
 │   │   └── ui/           # UI 组件
 │   │       ├── button.tsx        # 按钮组件
 │   │       ├── dropdown-menu.tsx # 下拉菜单组件
-│   │       ├── drawer.tsx        # 抽屉组件
 │   │       └── modal.tsx         # 弹窗组件
 │   └── lib/              # 工具函数
 │       └── utils.ts      # 工具函数
@@ -42,7 +41,7 @@ npm run dev
 #### 导入
 
 ```tsx
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 ```
 
 #### 使用示例
@@ -91,7 +90,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 ```
 
 #### 使用示例
@@ -109,42 +108,6 @@ import {
 </DropdownMenu>
 ```
 
-### 3. 抽屉组件 (Drawer)
-
-#### 导入
-
-```tsx
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-```
-
-#### 使用示例
-
-```tsx
-<Drawer>
-  <DrawerTrigger asChild>
-    <Button>打开抽屉</Button>
-  </DrawerTrigger>
-  <DrawerContent>
-    <DrawerHeader>
-      <DrawerTitle>抽屉标题</DrawerTitle>
-      <DrawerDescription>
-        这是一个抽屉组件，用于显示额外的内容。
-      </DrawerDescription>
-    </DrawerHeader>
-    <div className="py-4">
-      <p>抽屉内容...</p>
-    </div>
-  </DrawerContent>
-</Drawer>
-```
-
 ### 4. 弹窗组件 (Modal)
 
 #### 导入
@@ -158,7 +121,7 @@ import {
   ModalHeader,
   ModalTitle,
   ModalTrigger,
-} from "@/components/ui/modal";
+} from '@/components/ui/modal';
 ```
 
 #### 使用示例
@@ -171,9 +134,7 @@ import {
   <ModalContent>
     <ModalHeader>
       <ModalTitle>弹窗标题</ModalTitle>
-      <ModalDescription>
-        这是一个弹窗组件，用于显示重要信息。
-      </ModalDescription>
+      <ModalDescription>这是一个弹窗组件，用于显示重要信息。</ModalDescription>
     </ModalHeader>
     <div className="py-4">
       <p>弹窗内容...</p>
@@ -191,7 +152,7 @@ import {
 #### 导入
 
 ```tsx
-import { Input } from "@/components/ui/input";
+import { Input } from '@/components/ui/input';
 ```
 
 #### 使用示例
@@ -250,7 +211,7 @@ import {
   Check,
   AlertCircle,
   // 更多图标...
-} from "lucide-react";
+} from 'lucide-react';
 ```
 
 #### 使用示例
@@ -296,33 +257,25 @@ import {
 #### 导入
 
 ```tsx
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from '@/components/ui/calendar';
 ```
 
 #### 使用示例
 
 ```tsx
 // 基本日历
-<Calendar />
+<Calendar />;
 
 // 带日期选择
 const [selectedDate, setSelectedDate] = useState(new Date());
 
-<Calendar
-  value={selectedDate}
-  onChange={setSelectedDate}
-/>
+<Calendar value={selectedDate} onChange={setSelectedDate} />;
 
 // 带日期范围
 const [minDate] = useState(new Date(2024, 0, 1));
 const [maxDate] = useState(new Date(2024, 11, 31));
 
-<Calendar
-  value={selectedDate}
-  onChange={setSelectedDate}
-  minDate={minDate}
-  maxDate={maxDate}
-/>
+<Calendar value={selectedDate} onChange={setSelectedDate} minDate={minDate} maxDate={maxDate} />;
 ```
 
 ### 8. 复选框组件 (Checkbox)
@@ -330,7 +283,7 @@ const [maxDate] = useState(new Date(2024, 11, 31));
 #### 导入
 
 ```tsx
-import { Checkbox } from "@/components/ui/checkbox";
+import { Checkbox } from '@/components/ui/checkbox';
 ```
 
 #### 使用示例
@@ -365,7 +318,7 @@ const handleFruitChange = (fruit: string) => {
 #### 导入
 
 ```tsx
-import { Empty } from "@/components/ui/empty";
+import { Empty } from '@/components/ui/empty';
 ```
 
 #### 使用示例
@@ -399,10 +352,10 @@ import { Empty } from "@/components/ui/empty";
 #### 导入
 
 ```tsx
-import { Form, FormControl, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Select, SelectOption } from "@/components/ui/select";
-import { Button } from "@/components/ui/button";
+import { Form, FormControl, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { Select, SelectOption } from '@/components/ui/select';
+import { Button } from '@/components/ui/button';
 ```
 
 #### 使用示例
@@ -428,7 +381,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
 
 const handleSubmit = (e: React.FormEvent) => {
   e.preventDefault();
-  
+
   const newErrors: Record<string, string> = {};
   if (!formData.name) {
     newErrors.name = '请输入姓名';
@@ -441,18 +394,13 @@ const handleSubmit = (e: React.FormEvent) => {
   <FormItem>
     <FormLabel htmlFor="name">姓名</FormLabel>
     <FormControl>
-      <Input
-        id="name"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-      />
+      <Input id="name" name="name" value={formData.name} onChange={handleChange} />
     </FormControl>
     {errors.name && <FormMessage className="text-red-500">{errors.name}</FormMessage>}
   </FormItem>
 
   <Button type="submit">提交</Button>
-</Form>
+</Form>;
 ```
 
 ### 11. 分页组件 (Pagination)
@@ -460,7 +408,7 @@ const handleSubmit = (e: React.FormEvent) => {
 #### 导入
 
 ```tsx
-import { Pagination } from "@/components/ui/pagination";
+import { Pagination } from '@/components/ui/pagination';
 ```
 
 #### 使用示例
@@ -470,38 +418,26 @@ import { Pagination } from "@/components/ui/pagination";
 const [currentPage, setCurrentPage] = useState(1);
 const totalPages = 10;
 
-<Pagination
-  totalPages={totalPages}
-  currentPage={currentPage}
-  onPageChange={setCurrentPage}
-/>
-
+<Pagination totalPages={totalPages} currentPage={currentPage} onPageChange={setCurrentPage} />;
 ```
 
 ### 12. 气泡组件 (Popover)
 
 #### 导入
 
-```tsx
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-```
-
 #### 使用示例
 
 ```tsx
-
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 // 悬停触发的气泡
-<Popover trigger="hover">
-  <PopoverTrigger asChild>
-    <Button variant="secondary">悬停我</Button>
-  </PopoverTrigger>
-  <PopoverContent>
-    <div className="space-y-2">
-      <h3 className="font-medium">悬停气泡</h3>
-      <p className="text-sm text-muted-foreground">这是一个悬停触发的气泡组件。</p>
-    </div>
-  </PopoverContent>
-</Popover>
+<Tooltip>
+  <TooltipTrigger asChild>
+    <Button>悬停我</Button>
+  </TooltipTrigger>
+  <TooltipContent>
+    <p>这是一个基本的工具提示。</p>
+  </TooltipContent>
+</Tooltip>
 ```
 
 ### 13. 进度条组件 (Progress)
@@ -509,7 +445,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 #### 导入
 
 ```tsx
-import { Progress } from "@/components/ui/progress";
+import { Progress } from '@/components/ui/progress';
 ```
 
 #### 使用示例
@@ -530,12 +466,12 @@ import { Progress } from "@/components/ui/progress";
 #### 导入
 
 ```tsx
-import { Radio, RadioGroup } from "@/components/ui/radio";
+import { Radio, RadioGroup } from '@/components/ui/radio';
 ```
 
 #### 使用示例
 
-```tsx
+````tsx
 // 基本单选框组
 const [selected, setSelected] = useState("option1");
 
@@ -560,21 +496,20 @@ const [selected, setSelected] = useState("option1");
 
 ```tsx
 import { Select, SelectOption } from "@/components/ui/select";
-```
+````
 
 #### 使用示例
 
 ```tsx
 // 基本选择框
-const [selected, setSelected] = useState("");
+const [selected, setSelected] = useState('');
 
-<Select value={selected} onChange={(e) => setSelected(e.target.value)}>
+<Select>
   <SelectOption value="">请选择</SelectOption>
   <SelectOption value="option1">选项 1</SelectOption>
   <SelectOption value="option2">选项 2</SelectOption>
   <SelectOption value="option3">选项 3</SelectOption>
-</Select>
-
+</Select>;
 ```
 
 ### 16. 表格组件 (Table)
@@ -582,7 +517,14 @@ const [selected, setSelected] = useState("");
 #### 导入
 
 ```tsx
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 ```
 
 #### 使用示例
@@ -604,8 +546,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
       <TableCell>张三</TableCell>
       <TableCell>zhangsan@example.com</TableCell>
       <TableCell>
-        <Button variant="ghost" size="sm">编辑</Button>
-        <Button variant="ghost" size="sm" className="ml-2">删除</Button>
+        <Button variant="ghost" size="sm">
+          编辑
+        </Button>
+        <Button variant="ghost" size="sm" className="ml-2">
+          删除
+        </Button>
       </TableCell>
     </TableRow>
     <TableRow>
@@ -613,8 +559,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
       <TableCell>李四</TableCell>
       <TableCell>lisi@example.com</TableCell>
       <TableCell>
-        <Button variant="ghost" size="sm">编辑</Button>
-        <Button variant="ghost" size="sm" className="ml-2">删除</Button>
+        <Button variant="ghost" size="sm">
+          编辑
+        </Button>
+        <Button variant="ghost" size="sm" className="ml-2">
+          删除
+        </Button>
       </TableCell>
     </TableRow>
   </TableBody>
@@ -626,7 +576,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 #### 导入
 
 ```tsx
-import { Tag } from "@/components/ui/tag";
+import { Tag } from '@/components/ui/tag';
 ```
 
 #### 使用示例
@@ -634,11 +584,6 @@ import { Tag } from "@/components/ui/tag";
 ```tsx
 // 基本标签
 <Tag>标签</Tag>
-
-// 不同变体的标签
-<Tag variant="default">默认标签</Tag>
-<Tag variant="outline">轮廓标签</Tag>
-<Tag variant="destructive">危险标签</Tag>
 
 // 可关闭的标签
 <Tag closeable onClose={() => console.log('标签已关闭')}>
@@ -651,40 +596,242 @@ import { Tag } from "@/components/ui/tag";
 #### 导入
 
 ```tsx
-import { useToast } from "@/components/ui/toast-context";
-import { ToastContainer } from "@/components/ui/toast-container";
+import { toast } from 'sonner';
 ```
 
 #### 使用示例
 
 ```tsx
-// 在应用的根组件中添加 ToastContainer
-function App() {
-  return (
-    <>
-      {/* 其他组件 */}
-      <ToastContainer />
-    </>
-  );
-}
+// 基本使用
+toast('这是一条提示信息');
 
-// 在需要使用 Toast 的组件中
-const { showToast } = useToast();
+// 成功提示
+toast.success('操作成功', { position: 'top-center' });
+```
 
-// 显示成功提示
-showToast({
-  title: '操作成功',
-  description: '您的操作已成功完成',
-  type: 'success',
-});
+### 19. 选择框组件 (Select)
 
-// 显示错误提示
-showToast({
-  title: '操作失败',
-  description: '请稍后重试',
-  type: 'error',
-});
+#### 导入
 
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+```
+
+#### 使用示例
+
+```tsx
+// 基本选择框
+<Select>
+  <SelectTrigger className="w-[180px]">
+    <SelectValue placeholder="请选择" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="option1">选项 1</SelectItem>
+    <SelectItem value="option2">选项 2</SelectItem>
+    <SelectItem value="option3">选项 3</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+### 20. 提示组件 (Tooltip)
+
+#### 导入
+
+```tsx
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+```
+
+#### 使用示例
+
+```tsx
+// 基本提示
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger asChild>
+      <Button variant="outline">悬停我</Button>
+    </TooltipTrigger>
+    <TooltipContent>
+      <p>这是一个提示信息</p>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+### 21. 手风琴组件 (Accordion)
+
+#### 导入
+
+```tsx
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion';
+```
+
+#### 使用示例
+
+```tsx
+// 基本手风琴
+<Accordion type="single" collapsible className="w-full">
+  <AccordionItem value="item-1">
+    <AccordionTrigger>问题 1</AccordionTrigger>
+    <AccordionContent>这是问题 1 的答案。</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>问题 2</AccordionTrigger>
+    <AccordionContent>这是问题 2 的答案。</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-3">
+    <AccordionTrigger>问题 3</AccordionTrigger>
+    <AccordionContent>这是问题 3 的答案。</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+### 22. 对话框组件 (Dialog)
+
+#### 导入
+
+```tsx
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+```
+
+#### 使用示例
+
+```tsx
+// 基本对话框
+<Dialog>
+  <DialogTrigger asChild>
+    <Button>打开对话框</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>对话框标题</DialogTitle>
+      <DialogDescription>这是一个对话框组件，用于显示重要信息。</DialogDescription>
+    </DialogHeader>
+    <div className="py-4">
+      <p>对话框内容...</p>
+    </div>
+  </DialogContent>
+</Dialog>
+```
+
+### 23. 面包屑组件 (Breadcrumb)
+
+#### 导入
+
+```tsx
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+} from '@/components/ui/breadcrumb';
+```
+
+#### 使用示例
+
+```tsx
+// 基本面包屑
+<Breadcrumb>
+  <BreadcrumbItem>
+    <BreadcrumbLink href="#">首页</BreadcrumbLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem>
+    <BreadcrumbLink href="#">产品</BreadcrumbLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem>
+    <BreadcrumbLink href="#">电子产品</BreadcrumbLink>
+  </BreadcrumbItem>
+  <BreadcrumbItem>
+    <BreadcrumbPage>手机</BreadcrumbPage>
+  </BreadcrumbItem>
+</Breadcrumb>
+```
+
+### 24. 轮播组件 (Carousel)
+
+#### 导入
+
+```tsx
+import { Carousel, CarouselItem } from '@/components/ui/carousel';
+```
+
+#### 使用示例
+
+```tsx
+// 基本轮播
+<Carousel>
+  <CarouselItem className="h-64 bg-red-100 flex items-center justify-center">
+    <h3 className="text-2xl font-bold">Slide 1</h3>
+  </CarouselItem>
+  <CarouselItem className="h-64 bg-blue-100 flex items-center justify-center">
+    <h3 className="text-2xl font-bold">Slide 2</h3>
+  </CarouselItem>
+  <CarouselItem className="h-64 bg-green-100 flex items-center justify-center">
+    <h3 className="text-2xl font-bold">Slide 3</h3>
+  </CarouselItem>
+</Carousel>
+```
+
+### 25. 切换按钮组件 (Toggle)
+
+#### 导入
+
+```tsx
+import { Toggle } from '@/components/ui/toggle';
+```
+
+#### 使用示例
+
+```tsx
+// 基本切换按钮
+<Toggle>点击切换</Toggle>
+```
+
+### 26. 开关组件 (Switch)
+
+#### 导入
+
+```tsx
+import { Switch } from '@/components/ui/switch';
+```
+
+#### 使用示例
+
+```tsx
+// 基本开关
+<Switch />
+```
+
+### 27. 加载指示器组件 (Spinner)
+
+#### 导入
+
+```tsx
+import { Spinner } from '@/components/ui/spinner';
+```
+
+#### 使用示例
+
+```tsx
+// 基本加载指示器
+<Spinner size="sm" />
 ```
 
 ## 自定义主题

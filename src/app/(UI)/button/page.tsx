@@ -1,10 +1,13 @@
 import { Button } from '@/components/ui/button';
+import { Toggle } from '@/components/ui/toggle';
+import { Switch } from '@/components/ui/switch';
+import { useState } from 'react';
 
 export default function ButtonsPage() {
   return (
     <div>
       <h1 className="text-3xl font-bold mb-6">按钮组件</h1>
-      
+
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">按钮变体</h2>
         <div className="flex flex-wrap gap-4">
@@ -34,7 +37,7 @@ export default function ButtonsPage() {
           </div>
         </div>
       </div>
-      
+
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">按钮尺寸</h2>
         <div className="flex flex-wrap gap-4">
@@ -52,7 +55,7 @@ export default function ButtonsPage() {
           </div>
         </div>
       </div>
-      
+
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">按钮状态</h2>
         <div className="flex flex-wrap gap-4">
@@ -92,7 +95,7 @@ export default function ButtonsPage() {
           </div>
         </div>
       </div>
-      
+
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">按钮组合</h2>
         <div className="flex flex-wrap gap-4">
@@ -107,6 +110,34 @@ export default function ButtonsPage() {
           <div className="flex items-center gap-2">
             <Button variant="destructive">删除</Button>
             <Button variant="outline">取消</Button>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Toggle 组件</h2>
+        <div className="flex flex-wrap gap-8 ">
+          <div className="flex flex-col items-center gap-2 rounded-lg">
+            <Toggle className="px-4 py-2 bg-blue-50 hover:bg-blue-100 data-[state=on]:bg-blue-600 data-[state=on]:text-white">
+              基本 toggle
+            </Toggle>
+          </div>
+          <div className="flex flex-col items-center gap-2 rounded-lg">
+            <Toggle disabled className="px-4 py-2">
+              禁用状态
+            </Toggle>
+          </div>
+        </div>
+      </div>
+
+      <div className="mb-8">
+        <h2 className="text-xl font-semibold mb-4">Switch 组件</h2>
+        <div className="flex flex-wrap gap-8 items-center">
+          <Switch />
+          <Switch disabled />
+          <div className="flex items-center gap-2 p-4 bg-gray-50 rounded-lg">
+            <span>启用选项</span>
+            <Switch />
           </div>
         </div>
       </div>
